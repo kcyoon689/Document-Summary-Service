@@ -1,0 +1,91 @@
+{
+	"name": "Docker",
+	"build": {
+	  "dockerfile": "Dockerfile",
+	  "context": ".",
+	  "args": {
+		// "BASE_IMAGE": "nvcr.io/nvidia/l4t-jetpack:r36.4.0",
+		"BASE_IMAGE": "nvidia/cuda:12.2.0-devel-ubuntu22.04",
+		"USER_NAME": "user"
+	  }
+	},
+	"containerEnv": {
+	  "DISPLAY": "${localEnv:DISPLAY}",
+	  "XAUTHORITY": "${localEnv:XAUTHORITY}",
+	  "XDG_RUNTIME_DIR": "/run/user/1000",
+	  "TERM": "xterm-256color",
+	  "LIBGL_DRI3_DISABLE": "1",
+	  "ROS_DOMAIN_ID": "100"
+	},
+	"remoteEnv": {},
+	"mounts": [
+	  // "source=${localEnv:HOME}/.gitconfig,target=/etc/gitconfig,type=bind,consistency=cached",
+	  "source=${localEnv:HOME}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
+	  "source=/run/user/1000,target=/run/user/1000,type=bind,consistency=cached"
+	],
+	"capAdd": [
+	  "SYS_PTRACE"
+	],
+	"privileged": true,
+	"securityOpt": [
+	  "seccomp=unconfined"
+	],
+	"runArgs": [
+	  "--name=${localWorkspaceFolderBasename}",
+	  "--privileged",
+	  "--pid=host",
+	  "--ipc=host",
+	  "--network=host",
+	  // "--runtime=nvidia",
+	  "--gpus=all",
+	  "--device=/dev",
+	  "--env=DISPLAY",
+		  "--env=XDG_RUNTIME_DIR",
+		  "--env=WAYLAND_DISPLAY",
+	  "--env", "QT_X11_NO_MITSHM=1",
+		  "--volume=/dev/snd:/dev/snd",
+		  "--volume=/tmp/.X11-unix:/tmp/.X11-unix"
+	],
+	"initializeCommand": "xhost +local:docker",
+	// "postCreateCommand": "sh .devcontainer/postCreateCommand.sh",
+	"customizations": {
+	  "vscode": {
+		"settings": {
+		  "C_Cpp.default.cppStandard": "c++17"
+		},
+		"extensions": [
+		  "donjayamanne.python-extension-pack",
+		  "DavidAnson.vscode-markdownlint",
+		  "eamodio.gitlens",
+		  "jbenden.c-cpp-flylint",
+		  "ms-azuretools.vscode-docker",
+		  "ms-python.black-formatter",
+		  "ms-python.mypy-type-checker",
+		  "ms-python.pylint",
+		  "ms-python.python",
+		  "ms-toolsai.jupyter",
+		  "ms-vscode.cpptools-extension-pack",
+		  "msfukui.eof-mark",
+		  "naumovs.color-highlight",
+		  "oderwat.indent-rainbow",
+		  "shardulm94.trailing-spaces",
+		  "shd101wyy.markdown-preview-enhanced",
+		  "spmeesseman.vscode-taskexplorer",
+		  "streetsidesoftware.code-spell-checker",
+		  "usernamehw.errorlens",
+		  "vscode-icons-team.vscode-icons",
+		  "xaver.clang-format",
+		  "yzhang.markdown-all-in-one",
+		  "ZainChen.json",
+		  "feiskyer.chatgpt-copilot",
+		  "GitHub.copilot",
+		  "GitHub.copilot-chat",
+		  "aaron-bond.better-comments",
+		  "njpwerner.autodocstring",
+		  "jeff-hykin.better-cpp-syntax",
+		  "adam-bender.commit-message-editor",
+		  "pflannery.vscode-versionlens"
+		]
+	  }
+	}
+  }
