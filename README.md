@@ -1,21 +1,21 @@
-# 📄 SmartForm Assistant
+# SmartForm Assistant
 
 **SmartForm Service** is a Streamlit-based web application that leverages Upstage’s Solar API to automatically perform **summarization**, **classification**, **response generation**, **urgency detection**, and **question answering** for text-based civil complaints.
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
-- 📋 **Display & Analyze Complaint Text**
-- 🧠 **Document Summarization**: Concisely summarizes lengthy complaint content
-- 🏷️ **Complaint Classification**: Automatically categorizes complaints (e.g., Road, Environment, Noise, Safety, Others)
-- ✍️ **Automated Response Generation**: Generates polite and concise responses to the complaint
-- 📢 **Urgency Detection**: Identifies urgent complaints based on keywords such as “damage,” “accident,” or “danger”
-- 💬 **Question Answering**: Answers user queries based on complaint content
+- **Display & Analyze Complaint Text**
+- **Document Summarization**: Concisely summarizes lengthy complaint content
+- **Complaint Classification**: Automatically categorizes complaints (e.g., Road, Environment, Noise, Safety, Others)
+- **Automated Response Generation**: Generates polite and concise responses to the complaint
+- **Urgency Detection**: Identifies urgent complaints based on keywords such as “damage,” “accident,” or “danger”
+- **Question Answering**: Answers user queries based on complaint content
 
 ---
 
-## 🖼️ App Structure
+## App Structure
 
 ```text
 📄 SmartForm Assistant
@@ -29,7 +29,7 @@
 
 ---
 
-## 🛠️ Installation
+## Installation
 
 1. Requires Python 3.10 or higher.
 
@@ -53,7 +53,7 @@ streamlit run app.py
 
 ---
 
-## 📁 Directory Structure
+## Directory Structure
 
 ```
 Document-Summary-Service/
@@ -73,14 +73,6 @@ Document-Summary-Service/
 │
 └── requirements.txt         # Dependency list
 ```
-
----
-
-## 🧠 Technologies Used
-
-- [Streamlit](https://streamlit.io/)
-- [Upstage Solar API](https://console.upstage.ai/)
-- Python (`requests`, `json`)
 
 ---
 
