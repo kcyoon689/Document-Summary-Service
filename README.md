@@ -56,7 +56,7 @@ streamlit run app.py
 ## 📁 Directory Structure
 
 ```
-smartform_app_final/
+Document-Summary-Service/
 ├── app.py                    # Streamlit main application
 │
 ├── /api
